@@ -146,7 +146,7 @@ exports.notice = (comment) => {
     if (process.env.QQ != null) {
       qq = "&qq=" + process.env.QQ;
     }
-    const scContent = `[CQ:face,id=119]您的 ${process.env.SITE_NAME
+    const scContent = `您的 ${process.env.SITE_NAME
       } 上有新评论了！
 ${name} 发表评论：
 ${$(
