@@ -128,8 +128,7 @@ exports.notice = (comment) => {
     if (process.env.QQ_SHAKE != null) {
       axios
         .get(
-          `https://qmsg.zendee.cn:443/send/${
-            process.env.QMSG_KEY
+          `https://qmsg.zendee.cn:443/send/${process.env.QMSG_KEY
           }.html?msg=${encodeURIComponent("[CQ:shake]")}`
         )
         .then(function (response) {
@@ -147,25 +146,21 @@ exports.notice = (comment) => {
     if (process.env.QQ != null) {
       qq = "&qq=" + process.env.QQ;
     }
-    const scContent = `[CQ:face,id=119]您的 ${
-      process.env.SITE_NAME
-    } 上有新评论了！
-[CQ:face,id=183]${name} 发表评论：
-[CQ:face,id=77][CQ:face,id=77][CQ:face,id=77][CQ:face,id=77][CQ:face,id=77]
+    const scContent = `[CQ:face,id=119]您的 ${process.env.SITE_NAME
+      } 上有新评论了！
+${name} 发表评论：
 ${$(
-  text
-    .replace(/  <img.*?src="(.*?)".*?>/g, "\n[图片]$1\n")
-    .replace(/<br>/g, "\n")
-)
-  .text()
-  .replace(/\n+/g, "\n")
-  .replace(/\n+$/g, "")}
-[CQ:face,id=76][CQ:face,id=76][CQ:face,id=76][CQ:face,id=76][CQ:face,id=76]
-[CQ:face,id=169]${url + "#" + comment.get("objectId")}`;
+        text
+          .replace(/  <img.*?src="(.*?)".*?>/g, "\n[图片]$1\n")
+          .replace(/<br>/g, "\n")
+      )
+        .text()
+        .replace(/\n+/g, "\n")
+        .replace(/\n+$/g, "")}
+${url + "#" + comment.get("objectId")}`;
     axios
       .get(
-        `https://qmsg.zendee.cn:443/send/${
-          process.env.QMSG_KEY
+        `https://qmsg.zendee.cn:443/send/${process.env.QMSG_KEY
         }.html?msg=${encodeURIComponent(scContent)}` + qq
       )
       .then(function (response) {
@@ -225,9 +220,9 @@ exports.send = (currentComment, parentComment) => {
     currentComment.save();
     console.log(
       currentComment.get("nick") +
-        " @了" +
-        parentComment.get("nick") +
-        ", 已通知."
+      " @了" +
+      parentComment.get("nick") +
+      ", 已通知."
     );
   });
 };

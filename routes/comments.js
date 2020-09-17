@@ -24,7 +24,7 @@ router.get("/", function (req, res, next) {
             zone: String(process.env.LEANCLOUD_REGION),
             favicon: process.env.FAVICON
               ? process.env.FAVICON
-              : "https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@v3.2.3/butterfly/img/favicon.ico",
+              : "https://cdn.jsdelivr.net/gh/HowieHye/CDN@latest/blog/favicon.ico",
           });
         },
         function (err) {
@@ -34,7 +34,7 @@ router.get("/", function (req, res, next) {
               comment_list: [],
               favicon: process.env.FAVICON
                 ? process.env.FAVICON
-                : "https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@v3.2.3/butterfly/img/favicon.ico",
+                : "https://cdn.jsdelivr.net/gh/HowieHye/CDN@latest/blog/favicon.ico",
             });
           } else {
             next(err);
@@ -47,7 +47,7 @@ router.get("/", function (req, res, next) {
     res.redirect("/", {
       favicon: process.env.FAVICON
         ? process.env.FAVICON
-        : "https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@v3.2.3/butterfly/img/favicon.ico",
+        : "https://cdn.jsdelivr.net/gh/HowieHye/CDN@latest/blog/favicon.ico",
     });
   }
 });
@@ -66,11 +66,11 @@ router.get("/resend-email", function (req, res, next) {
                 mail.send(object, parent);
                 res.redirect("/comments");
               },
-              function (err) {}
+              function (err) { }
             )
             .catch(next);
         },
-        function (err) {}
+        function (err) { }
       )
       .catch(next);
   } else {
@@ -88,14 +88,14 @@ router.get("/delete", function (req, res, next) {
           object.destroy();
           res.redirect("/comments");
         },
-        function (err) {}
+        function (err) { }
       )
       .catch(next);
   } else {
     res.redirect("/", {
       favicon: process.env.FAVICON
         ? process.env.FAVICON
-        : "https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@v3.2.3/butterfly/img/favicon.ico",
+        : "https://cdn.jsdelivr.net/gh/HowieHye/CDN@latest/blog/favicon.ico",
     });
   }
 });
@@ -113,7 +113,7 @@ router.get("/not-spam", function (req, res, next) {
           spam.submitHam(object);
           res.redirect("/comments");
         },
-        function (err) {}
+        function (err) { }
       )
       .catch(next);
   } else {
@@ -133,7 +133,7 @@ router.get("/mark-spam", function (req, res, next) {
           spam.submitSpam(object);
           res.redirect("/comments");
         },
-        function (err) {}
+        function (err) { }
       )
       .catch(next);
   } else {
